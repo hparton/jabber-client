@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Akkurat';
+  src:
+    url('../fonts/lineto-akkurat-regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Akkurat';
+  src:
+    url('../fonts/lineto-akkurat-bold.woff') format('woff');
+  font-weight: 600;
+}
+
+html {font-size: 1em;}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+body {
+  line-height: 1.45;
+  color: #8b8b8b;
+}
+
+.gray-8 {
+  color: rgba(200,212,238,.8);
+}
+
+.gray-4 {
+  color: rgba(200,212,238,.4);
+}
+
+p {margin-bottom: 1.3em;}
+
+.t-size-m {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+a {
+  color: $highlight;
+}
+
+.t-size-xl {
+  font-size: 35px;
+  line-height: 1.2857142857;
+}
+
+small, .font_small {font-size: 0.75em;}

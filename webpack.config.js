@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
     filename: "[name].css",
@@ -10,8 +11,8 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
     entry: {
         app: [
-            './main.js',
-            './scss/main.scss'
+            './src/main.js',
+            './src/scss/main.scss'
         ]
     },
 
@@ -22,6 +23,7 @@ module.exports = {
     },
 
     devServer: {
+        quiet: true,
         stats: 'minimal',
     },
 
@@ -43,15 +45,13 @@ module.exports = {
             loader: 'babel-loader'
         }, {
             test: /\.scss$/,
-            use: extractSass.extract({
-                use: [{
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }],
-                // use style-loader in development
-                fallback: "style-loader"
-            })
+            use: [{
+                loader: "style-loader"
+            },{
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader"
+            }],
         }, {
             test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
             loader: 'file-loader',
@@ -62,7 +62,8 @@ module.exports = {
     },
 
     plugins: [
-        extractSass
+        extractSass,
+        new FriendlyErrorsWebpackPlugin()
     ],
 
     resolve: {

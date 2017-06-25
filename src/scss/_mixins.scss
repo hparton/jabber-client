@@ -1,0 +1,44 @@
+@mixin cf {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/*
+ * Responsive Text
+ * For when you want your text to scale with the viewport width
+ * all arguments take a pixel value
+ * $min-width: the minimum viewport width you want your text to start scaling
+ * $max-width: the maximum viewport width you want your text to stop scaling
+ * $min-size: the minimum font-size to start scaling with
+ * $max-size: the maximum font-size to finish scaling with
+ *
+ * In the example below, the font-size will be 15px at 400px viewport width
+ * and it will scale up to 30px at 800px viewport width
+
+.body-text {
+    @include responsive-text(400px, 800px, 15px, 30px);
+}
+ */
+@mixin responsive-text($min-width, $max-width, $min-size, $max-size) {
+    $min-width-value: ($max-size - $min-size) / ($max-width - $min-width);
+    $vw-value: (($max-size - $min-size) / ($max-width - $min-width) * 100) + vw;
+
+    /* file: global */
+    /* stylelint-disable declaration-block-no-duplicate-properties */
+    font-size: $max-size - ($min-size / 2); // fallback
+    font-size: calc((#{$min-size} - #{$min-width} * #{$min-width-value}) + #{$vw-value});
+    /* stylelint-enable declaration-block-no-duplicate-properties */
+
+    @media screen and (max-width: $min-width) {
+        /* file: global */
+        font-size: $min-size;
+    }
+
+    @media screen and (min-width: $max-width) {
+        /* file: global */
+        font-size: $max-size;
+    }
+}

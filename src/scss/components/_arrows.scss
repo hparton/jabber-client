@@ -1,0 +1,8 @@
+.arrow-top,
+.arrow-right,
+.arrow-down,
+.arrow-left {
+  backface-visibility: hidden;
+  display: inline-block;
+  transition: transform .25s cubic-bezier(.25, .46, .45, .94);
+}
