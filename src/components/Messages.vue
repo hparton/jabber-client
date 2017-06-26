@@ -2,9 +2,9 @@
   <div class="messages-container site-container--narrow p2">
     <ul class="messages mxn1">
       <li class="message m1 flex" v-bind:class="[sentBy(message.userId) ? '-personal' : '-other']" v-for="(message, index) in messages">
-        <span class="message__text p2 table rounded">{{ message.text }}</span>
-        <img class="message__avatar circle ml2" v-if="!sentBy(message.userId)" src="https://placeimg.com/54/54/any" alt="">
-        <a class="message__remove" @click="deleteMessage(index)">x</a>
+        <span class="message__text p1 table rounded">{{ message.text }}</span>
+        <!-- <img class="message__avatar circle ml2" v-if="!sentBy(message.userId)" src="https://placeimg.com/54/54/any" alt=""> -->
+        <!-- <a class="message__remove" @click="deleteMessage(index)">x</a> -->
       </li>
     </ul>
   </div>
@@ -28,7 +28,7 @@
       },
       scrollToBottom () {
         this.$nextTick(() => {
-          const node = this.$el.getElementsByClassName('messages')[0]
+          const node = this.$el
           node.scrollTop = node.scrollHeight
         })
       }

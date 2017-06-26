@@ -1,18 +1,18 @@
 .messages-container {
   position: relative;
+  overflow: auto;
 }
 
-.new-message {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .messages {
   list-style: none;
-  height: 81.5vh;
-  overflow: auto;
   // display: grid;
   // grid-auto-flow: row;
   // grid-template-columns: repeat(2, 1fr);
@@ -34,10 +34,6 @@
 
 .message__text {
   background: rgba(255,255,255,0.1);
-
-  border-radius: 0.3rem;
-  border: 1px solid #ebebeb;
-
 }
 
 .message__remove {
@@ -72,11 +68,11 @@
 
 
 .new-message {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
-  background: #fdfdfd;
-  border: 2px solid #ebebeb;
+  background: #272d38;
+  // border: 2px solid #ebebeb;
+  height: 350px;
 }
 
 .new-message__inputs {
@@ -89,6 +85,7 @@
   border: none;
   resize: none;
   background: none;
+  color: #fff;
 }
 
 .new-message__submit {

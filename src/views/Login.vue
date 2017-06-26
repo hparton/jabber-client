@@ -69,3 +69,14 @@ export default {
   }
 }
 </script>
+
+<style>
+  .login {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    margin: 0 auto;
+  }
+</style>

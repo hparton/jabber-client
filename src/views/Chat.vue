@@ -1,5 +1,6 @@
 <template>
   <div class="chat">
+    <a href="#" @click="logout">Logout</a>
     <messages
       :messages="messages.data"
       :user="user" />
